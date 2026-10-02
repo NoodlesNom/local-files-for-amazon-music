@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Music Local Files: Microsoft Edge extension</title>
+<meta name="description" content="A free Microsoft Edge extension that plays audio files from this computer as a Local Files playlist in Amazon Music. Audio stays on this computer. Not affiliated with Amazon.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/icon.png" alt="">Local Files</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#privacy" class="hide-s">Privacy</a>
+      <a href="#more">More add-ons</a>
+      <a href="https://github.com/NoodlesNom/local-files-for-amazon-music">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <a class="pill" href="#features"><b>1.0.0</b> Your files, in Amazon Music &rarr;</a>
+    <h1>Play your own local files in Amazon Music</h1>
+    <p class="kicker">Add songs from this computer and play them on the Local Files playlist.</p>
+    <p class="lead">Audio stays on this computer. The extension does not upload it.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#install">Microsoft Edge Add-ons<span class="bver" data-ver="store"></span></a>
+      <a class="btn" href="https://github.com/NoodlesNom/local-files-for-amazon-music/releases/latest" title="Download the ZIP and load it unpacked">Get it on GitHub<span class="bver" data-ver="github"></span></a>
+    </div>
+    <p class="note versions">There is no Edge Add-ons page yet. A store draft has not been submitted. The GitHub version is what you can install today. <a href="#install">See install options</a>.</p>
+    <p class="note">Free and open source (MIT). No account of ours, no analytics. Not affiliated with Amazon. The Edge listing is a draft and has not been submitted.</p>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="sub">On the Local Files playlist in Amazon Music. Playback uses the files you pick.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">+</div><h3>Add songs</h3>
+        <p>On the Local Files page, Add songs opens a file picker. You can also drag audio files onto the Amazon Music page. mp3, m4a, mp4, flac, wav, ogg, aac, opus, and webm are accepted.</p></div>
+      <div class="card"><div class="icon">♪</div><h3>Plays on this computer</h3>
+        <p>Play and pause, seek, next and previous, shuffle, repeat, a queue, and volume. The audio element plays the file locally. Nothing is uploaded.</p></div>
+      <div class="card"><div class="icon">Aa</div><h3>Title, artist, and cover</h3>
+        <p>Tags and cover art are read from the file in the browser. If a file has no tags, a name like Artist - Title is used. You can rename a song in the list.</p></div>
+      <div class="card"><div class="icon">#</div><h3>Sort and search</h3>
+        <p>Sort by title A to Z, title Z to A, or added order. Search the local song names on the playlist page.</p></div>
+      <div class="card"><div class="icon">◎</div><h3>An anchor playlist</h3>
+        <p>The page is a real Amazon playlist titled LOCAL PLACEHOLDER, shown as Local Files. It is created public and empty if it is missing. Catalog tracks that land on it are removed. Your audio is not uploaded into it.</p></div>
+      <div class="card"><div class="icon">☰</div><h3>Toolbar list</h3>
+        <p>The toolbar popup lists song names only, not the audio. It can create the LOCAL PLACEHOLDER playlist when Amazon Music is already open.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+    <div class="grid">
+      <div class="card"><h3>Microsoft Edge Add-ons</h3>
+        <p>The store package and listing text are prepared. The Edge listing is a draft and has not been submitted, so there is no store page. When a listing is published later, Edge can install it in one click. Store copies do not contact GitHub.</p>
+        <p style="margin-top:14px"><a class="btn primary" href="#install" aria-disabled="true">Edge Add-ons draft, not submitted<span class="bver" data-ver="store"></span></a></p></div>
+      <div class="card"><h3>Load unpacked (Edge, Chrome, and other browsers)</h3>
+        <ol class="steps">
+          <li>Download the ZIP from the <a href="https://github.com/NoodlesNom/local-files-for-amazon-music/releases/latest">latest release</a> and unzip it (or clone the repo).</li>
+          <li>Open <code>edge://extensions</code> (in Chrome: <code>chrome://extensions</code>).</li>
+          <li>Turn on <b>Developer mode</b>.</li>
+          <li>Click <b>Load unpacked</b> and pick the folder that contains <code>manifest.json</code>.</li>
+          <li>Open <a href="https://music.amazon.com">Amazon Music</a> and the Local Files playlist. Use Add songs, or drag files onto the page.</li>
+        </ol>
+        <p style="margin-top:14px"><a class="btn" href="https://github.com/NoodlesNom/local-files-for-amazon-music/releases/latest" title="Download the ZIP and load it unpacked">Get it on GitHub<span class="bver" data-ver="github"></span></a></p></div>
+      <div class="card"><h3>Where it runs</h3>
+        <p>English Amazon Music sites only: music.amazon.com, .ca, .co.uk, .com.au, .in, and .ae. The Local Files view is the playlist titled LOCAL PLACEHOLDER.</p>
+        <p style="margin-top:12px">Picked files are remembered as file handles in this browser so you do not have to choose them again after a reload. The audio itself is not copied into the extension.</p></div>
+    </div>
+    <p class="note versions" style="margin-top:18px">There is no Edge Add-ons page yet. A store draft has not been submitted. Install from GitHub until a listing exists. <a href="#features">See what's included</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="disclaimer"><b>Not affiliated with Amazon.</b> This is an independent, unofficial extension. It is not made, endorsed or supported by Amazon. Amazon Music is a trademark of Amazon.com, Inc. or its affiliates.</p>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <h2>Privacy</h2>
+    <div class="grid">
+      <div class="card"><h3>No account with us</h3><p>There is no sign-in to the developer, no analytics, and no server of ours. Removing the extension removes it.</p></div>
+      <div class="card"><h3>Audio stays here</h3><p>The extension reads files you pick and plays them in the browser. It does not upload audio to the developer and does not store audio bytes on a server. Extension storage keeps names, not the files.</p></div>
+      <div class="card"><h3>Amazon, only for the anchor</h3><p>Finding or creating the empty LOCAL PLACEHOLDER playlist uses the Amazon Music sign-in already open in that tab. Those requests do not include your audio.</p></div>
+    </div>
+    <p style="margin-top:20px"><a href="privacy.html">Read the full privacy notes</a></p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <h2>More add-ons</h2>
+    <p class="sub">Separate extensions for Amazon Music. Find in Playlist hides its search button while the Local Files playlist is open.</p>
+    <div class="card new">
+      <div class="icon" aria-hidden="true">+</div>
+      <h3>History Playlist for Amazon Music</h3>
+      <p>On expanded Song History, make a new playlist from the songs at the top of the list. It does not play those songs.</p>
+      <p style="margin-top:14px"><a class="btn primary" href="https://noodlesnom.github.io/history-playlist-for-amazon-music/">History Playlist site</a> <a class="btn" href="https://github.com/NoodlesNom/history-playlist-for-amazon-music">GitHub</a></p>
+    </div>
+    <div class="card new">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15.5 L20 20.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Find in Playlist for Amazon Music</h3>
+      <p>On an Amazon Music playlist page, a floating button finds the next song by title or artist, including songs that are not loaded yet. It does not play the row.</p>
+      <p style="margin-top:14px"><a class="btn primary" href="https://noodlesnom.github.io/find-in-playlist-for-amazon-music/">Find in Playlist site</a> <a class="btn" href="https://github.com/NoodlesNom/find-in-playlist-for-amazon-music">GitHub</a></p>
+    </div>
+    <div class="card new">
+      <div class="icon">文</div>
+      <h3>Lyrics Translate &amp; Romanize for Amazon Music</h3>
+      <p>Translates the lyrics in the Amazon Music web player and adds romanization for non-Latin scripts. When Amazon has no lyrics for a song, it can show synced lyrics from LRCLIB.</p>
+      <p style="margin-top:14px"><a class="btn primary" href="https://noodlesnom.github.io/lyrics-translate-for-amazon-music/">Lyrics Translate site</a> <a class="btn" href="https://github.com/NoodlesNom/lyrics-translate-for-amazon-music">GitHub</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Amazon Music Local Files · MIT License · © NoodlesNom</p>
+    <p><a href="privacy.html">Privacy</a> · <a href="https://github.com/NoodlesNom/local-files-for-amazon-music">Source code</a> · <a href="https://noodlesnom.github.io/history-playlist-for-amazon-music/">History Playlist</a> · <a href="https://noodlesnom.github.io/find-in-playlist-for-amazon-music/">Find in Playlist</a></p>
+  </div>
+</footer>
+<script>
+// Version numbers in the install buttons: versions.json is on this same site (updated by a GitHub Actions workflow every
+// 6 hours and on each release), so visitors' browsers make no third-party requests. If it can't load, the buttons just show no version.
+fetch('versions.json', { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((v) => {
+  const ok = (x) => typeof x === 'string' && /^\d+(\.\d+){1,3}$/.test(x);
+  const at = new Date(v.checked);
+  const when = isNaN(at) ? '' : 'Version checked ' + at.toLocaleString();
+  document.querySelectorAll('[data-ver]').forEach((el) => {
+    const x = v[el.dataset.ver];
+    if (!ok(x)) return;
+    el.textContent = ' (v' + x + ')';
+    if (when) el.parentElement.title = (el.parentElement.title ? el.parentElement.title + '. ' : '') + when;
+  });
+  if (ok(v.store) && ok(v.github) && v.store === v.github) {
+    document.querySelectorAll('.note.versions').forEach((el) => { el.hidden = true; });
+  }
+}).catch(() => {});
+</script>
+</body>
+</html>
