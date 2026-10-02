@@ -2,7 +2,7 @@
 
 A free Microsoft Edge extension that plays audio files from this computer as a Local Files playlist inside Amazon Music. Version 1.0.0.
 
-It anchors to an Amazon playlist titled exactly `LOCAL PLACEHOLDER` and shows that playlist as **Local Files**. Add songs on that page. Playback uses the files on this computer. Audio bytes are not uploaded to the developer and are not written into extension storage.
+It creates a playlist inside Amazon Music and uses that playlist so local files sit in the library like everything else. That playlist is shown as **Local Files**. On Amazon Music its title is exactly `LOCAL PLACEHOLDER`. It is private and starts empty. Add songs on that page. Playback uses the files on this computer. Audio bytes are not uploaded to the developer and are not written into extension storage.
 
 It sits with [History Playlist for Amazon Music](https://noodlesnom.github.io/history-playlist-for-amazon-music/) and [Find in Playlist for Amazon Music](https://noodlesnom.github.io/find-in-playlist-for-amazon-music/). Find in Playlist hides its search button while the Local Files playlist is open.
 
@@ -20,13 +20,13 @@ English Amazon Music sites only: music.amazon.com, .ca, .co.uk, .com.au, .in, an
 
 ## What it does
 
-- Shows the placeholder playlist as **Local Files**.
+- Shows that playlist as **Local Files**.
 - Adds songs from a file picker or a drag-and-drop onto the Amazon Music page. Accepted types include mp3, m4a, mp4, flac, wav, ogg, aac, opus, and webm.
 - Reads title, artist, and cover art from the file in the browser. A filename such as `Artist - Title` is used when the file has no tags.
 - Plays the file locally: play and pause, seek, next and previous, shuffle, repeat, a queue, and volume.
 - Sorts the list by title (A to Z or Z to A) or by added order, and can search the local song names.
 - Remembers file handles in IndexedDB so a pick can be opened again after a reload. Audio bytes are not stored. Names and artists are kept in extension storage.
-- The toolbar popup lists those names and can create the empty `LOCAL PLACEHOLDER` playlist if it is missing. That playlist is public on Amazon Music and starts with no catalog tracks. The extension does not upload your audio to Amazon.
+- The toolbar popup lists those names and can create the empty `LOCAL PLACEHOLDER` playlist if it is missing. That playlist is private and starts with no catalog tracks. The extension does not upload your audio to Amazon.
 
 ## Privacy
 

@@ -25,10 +25,10 @@
     <li>It is a content script on the English Amazon Music sites: music.amazon.com, .ca, .co.uk, .com.au, .in, and .ae. A toolbar popup and a background service worker run with it.</li>
     <li>On the Local Files playlist, it reads audio files you pick with the file picker or drop onto the page. It reads title, artist, and cover art from those files in the browser, and plays them with an audio element on that page.</li>
     <li>Audio bytes are not written to extension storage and are not sent to the developer. They are not stored on a server run by the developer. There is no such server.</li>
-    <li>Extension storage keeps song names, artists, filenames, ids, the LOCAL PLACEHOLDER playlist id, shuffle, and a small player session (which song and where playback was). That is text, not the audio.</li>
+    <li>Extension storage keeps song names, artists, filenames, ids, the Local Files playlist id, shuffle, and a small player session (which song and where playback was). That is text, not the audio.</li>
     <li>File System Access handles are kept in IndexedDB in the extension and on the Amazon Music page so the same files can be opened again after a reload. A handle is a permission to read a file you already chose. It is not a copy of the audio.</li>
-    <li>If the playlist titled LOCAL PLACEHOLDER does not exist, the extension asks Amazon Music, with the sign-in already in that tab, to create a public playlist with that title and no tracks. It can also list that playlist and remove catalog tracks that were added to it. Those requests go to Amazon Music (music.amazon and gql.music.amazon). They do not include your audio files, and they are not sent to the developer.</li>
-    <li>The toolbar popup shows the saved names and can ask the open Amazon Music tab to create that playlist. It does not read other sites.</li>
+    <li>If the playlist Local Files uses does not exist, the extension asks Amazon Music, with the sign-in already in that tab, to create a private playlist with no tracks. It can also list that playlist and remove catalog tracks that were added to it. Those requests go to Amazon Music (music.amazon and gql.music.amazon). They do not include your audio files, and they are not sent to the developer.</li>
+    <li>The toolbar popup shows the saved names and can ask the open Amazon Music tab to create that playlist. It does not read other sites. The playlist is private.</li>
   </ul>
 
   <h2>What it does not do</h2>

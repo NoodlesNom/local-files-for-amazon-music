@@ -797,16 +797,36 @@
     return null;
   }
 
+
+  const UPDATE_VISIBILITY_MUTATION = 'mutation updatePlaylistProperties($id: String!, $title: String!, $visibility: String) { updatePlaylist(playlistId: $id, title: $title, visibility: $visibility) { id } }';
+
+  async function makePlaceholderPrivate(id) {
+    if (!id) return;
+    try {
+      const stored = await chrome.storage.local.get({ placeholderPrivateId: '' });
+      if (stored.placeholderPrivateId === id) return;
+      await gql('updatePlaylistProperties', UPDATE_VISIBILITY_MUTATION, {
+        id: id,
+        title: PLACEHOLDER,
+        visibility: 'PRIVATE'
+      });
+      await chrome.storage.local.set({ placeholderPrivateId: id });
+    } catch (err) {
+      console.debug('amfl: could not set playlist private', err && err.message ? err.message : err);
+    }
+  }
+
   async function createIfMissing() {
     const existing = await findPlaceholderOnServer();
     if (existing && existing.id) {
       storedId = existing.id;
       await chrome.storage.local.set({ placeholderId: existing.id });
+      await makePlaceholderPrivate(existing.id);
       return { ok: true, created: false, id: existing.id };
     }
     const data = await gql('PlaylistModalCreatePlaylist', CREATE_MUTATION, {
       title: PLACEHOLDER,
-      visibility: 'PUBLIC',
+      visibility: 'PRIVATE',
       trackAsins: null
     });
     const created = data && data.createPlaylist;
@@ -815,6 +835,7 @@
     if (again && again.id && again.id !== created.id && again.title === PLACEHOLDER) {
       storedId = again.id;
       await chrome.storage.local.set({ placeholderId: again.id });
+      await makePlaceholderPrivate(again.id);
       return { ok: true, created: false, id: again.id };
     }
     storedId = created.id;
@@ -4338,7 +4359,7 @@
     texts.forEach((node) => {
       const parent = node.parentElement;
       const trimmed = (node.nodeValue || '').trim();
-      if (!parent || parent.dataset.amflSongCount === '1' || !/^public$/i.test(trimmed)) return;
+      if (!parent || parent.dataset.amflSongCount === '1' || !/^(?:public|private)$/i.test(trimmed)) return;
       if (parent.closest && parent.closest('#amfl-player, #amfl-tracks, #amfl-add, #amfl-sort-control')) return;
       let near = false;
       if (titleRect) {
