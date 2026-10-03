@@ -54,7 +54,7 @@ jobs:
 
           # This product is under review and currently returns 404 until it is public.
           store=$(curl -fsS --max-time 20 --retry 2 \
-            'https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/e4ea1fe3-9e1f-440a-a590-ced105bb31a7' \
+            'https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/hphcmldhchddgjcbgbmeoffjnbcgabeo' \
             | jq -r 'select(.name == "Amazon Music Local Files") | .version // empty' || true)
           if [[ ! "$store" =~ $re ]]; then
             echo "::warning::Could not read the Edge Add-ons version; keeping '${old_store}'"
