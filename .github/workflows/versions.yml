@@ -40,9 +40,21 @@ jobs:
           old_github=$(jq -r '.github // empty' "$f" 2>/dev/null || true)
           re='^[0-9]+(\.[0-9]+){1,3}$'
 
-          # Replace pending with the Edge Add-ons product id after the listing is published. Until then this 404s and the previous store version is kept.
+          # Return success when the first dotted version is older than the second.
+          version_lt() {
+            local left right i
+            IFS=. read -r -a left <<< "$1"
+            IFS=. read -r -a right <<< "$2"
+            for ((i = 0; i < 4; i++)); do
+              ((10#${left[i]:-0} < 10#${right[i]:-0})) && return 0
+              ((10#${left[i]:-0} > 10#${right[i]:-0})) && return 1
+            done
+            return 1
+          }
+
+          # This product is under review and currently returns 404 until it is public.
           store=$(curl -fsS --max-time 20 --retry 2 \
-            'https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/pending' \
+            'https://microsoftedge.microsoft.com/addons/getproductdetailsbycrxid/e4ea1fe3-9e1f-440a-a590-ced105bb31a7' \
             | jq -r 'select(.name == "Amazon Music Local Files") | .version // empty' || true)
           if [[ ! "$store" =~ $re ]]; then
             echo "::warning::Could not read the Edge Add-ons version; keeping '${old_store}'"
@@ -56,6 +68,14 @@ jobs:
           if [[ ! "$github" =~ $re ]]; then
             echo "::warning::Could not read the latest GitHub release; keeping '${old_github}'"
             github=$old_github
+          fi
+
+          # Never publish a GitHub version ahead of the version available in Edge.
+          if [[ -z "$store" ]]; then
+            github=$store
+          elif [[ "$github" =~ $re ]] && version_lt "$store" "$github"; then
+            echo "::notice::Capping GitHub version '$github' at Edge version '$store'"
+            github=$store
           fi
 
           echo "Store: '$store' (was '$old_store') · GitHub: '$github' (was '$old_github')"
