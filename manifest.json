@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Amazon Music Local Files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Play audio files from this computer as a Local Files playlist anchored to an Amazon playlist named LOCAL PLACEHOLDER.",
   "permissions": [
     "storage",
